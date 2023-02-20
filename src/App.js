@@ -1,24 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import { Routes, Route, BrowserRouter } from "react-router-dom";
+import "./App.css";
+import Sidebar from "./components/Sidebar";
+import Analytics from "./pages/Analytics";
+import Dashboard from "./pages/Dashboard";
+import Marketplace from "./pages/Marketplace";
+import MyWipass from "./pages/MyWipass";
+import Settings from "./pages/Settings";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Sidebar>
+      <Routes>
+        <Route path="/" element={<Dashboard />} />
+        <Route path="/analytics" element={<Analytics />} />
+        <Route path="/myWipass" element={<MyWipass />} />
+        <Route path="/marketplace" element={<Marketplace />} />
+        <Route path="/settings" element={<Settings />} />
+      </Routes>
+      </Sidebar>
+    </BrowserRouter>
   );
 }
 
